@@ -5,9 +5,9 @@ case "$1" in
         GADGET=/sys/kernel/config/usb_gadget/g1
         SERIAL=`cat /proc/cpuinfo | grep Serial | cut -d ' ' -f 2`
         if [ -n "$SERIAL" ]; then
-		MAC="fa:${SERIAL:6:2}:${SERIAL:8:2}:${SERIAL:10:2}:${SERIAL:12:2}:${SERIAL:14:2}"
+            MAC="fa:${SERIAL:6:2}:${SERIAL:8:2}:${SERIAL:10:2}:${SERIAL:12:2}:${SERIAL:14:2}"
         else
-		MAC="fa:31:43:14:31:43"
+            MAC="fa:31:43:14:31:43"
         fi
 
         mount -t configfs none /sys/kernel/config
@@ -41,25 +41,25 @@ case "$1" in
         echo "IP configuration:"
         echo
         ifconfig usb0 add fe80::1/64 up
-	ifconfig -a
-	
+        ifconfig -a
+
         pigpiod -x -1
-	
-	echo
-	echo "pigpiod is accessible through the IPv6 link local address (e.g. fe80::1%usb0)"
-	echo "shell access is available through USB for debugging (screen /dev/ttyACM0 115200)"
-	echo
+
+        echo
+        echo "pigpiod is accessible through the IPv6 link local address (e.g. fe80::1%usb0)"
+        echo "shell access is available through USB for debugging (screen /dev/ttyACM0 115200)"
+        echo
         ;;
   stop)
         kill `cat /var/run/pigpiod.pid`
-	;;
+        ;;
   restart|reload)
-	"$0" stop
-	"$0" start
-	;;
+        "$0" stop
+        "$0" start
+        ;;
   *)
-	echo "Usage: $0 {start|stop|restart}"
-	exit 1
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
 esac
 
 exit $?
