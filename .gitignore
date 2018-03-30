@@ -1,1 +1,10 @@
 /buildroot-2017.02
+/output/bootcode.bin
+/output/fixup.dat
+/output/start.elf
+/output/gpioexpand.img
+/output/kernel.img
+/output/*.dtb
+/output/overlays
+/gpioexpand/board/overlay/etc/dropbear/*host_key
+/gpioexpand/board/overlay/root/.ssh/
