@@ -1,3 +1,4 @@
 dtoverlay=dwc2,dr_mode=peripheral
+dtparam=i2c=on
 kernel=kernel.img
 initramfs gpioexpand.img
