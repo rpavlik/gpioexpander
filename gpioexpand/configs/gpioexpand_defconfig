@@ -28,4 +28,10 @@ BR2_TARGET_ROOTFS_CPIO_GZIP=y
 BR2_PACKAGE_AVAHI=y
 BR2_PACKAGE_AVAHI_AUTOIPD=y
 BR2_PACKAGE_AVAHI_DAEMON=y
+
+# SSH: Note the host key will change every boot unless you copy one from a running device to
+# gpioexpand/board/overload/etc/dropbear/dropbear_ecdsa_host_key and rebuild the image.
+BR2_PACKAGE_DROPBEAR=y
+BR2_PACKAGE_DROPBEAR_DISABLE_REVERSEDNS=y
+BR2_PACKAGE_DROPBEAR_SMALL=y
 BR2_CCACHE=y
